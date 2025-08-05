@@ -12,24 +12,28 @@ import { jsPDF } from 'jspdf';
 
 const networkProviders = [
   { 
-    value: 'MTN', 
+    value: 'mtn', 
     label: 'MTN',
-    color: 'bg-yellow-500'
+    color: 'bg-yellow-500',
+    id: 1
   },
   { 
-    value: 'AIRTEL', 
+    value: 'airtel', 
     label: 'Airtel',
-    color: 'bg-red-500'
+    color: 'bg-red-500',
+    id: 2
   },
   { 
-    value: 'GLO', 
-    label: 'Glo',
-    color: 'bg-green-500'
-  },
-  { 
-    value: '9MOBILE', 
+    value: '9mobile', 
     label: '9mobile',
-    color: 'bg-teal-500'
+    color: 'bg-teal-500',
+    id: 3
+  },
+  { 
+    value: 'glo', 
+    label: 'Glo',
+    color: 'bg-green-500',
+    id: 4
   },
 ];
 
@@ -89,6 +93,7 @@ const DataServicePage: React.FC = () => {
   const fetchDataPlans = async () => {
     setLoadingPlans(true);
     try {
+      // Fetch data plans from Supabase (assuming they are synced from SME Plug)
       const { data, error } = await supabase
         .from('data_plans')
         .select('*')
@@ -161,21 +166,26 @@ const DataServicePage: React.FC = () => {
         throw new Error('Insufficient wallet balance');
       }
 
-      // Deduct from wallet first
-      const newBalance = user.walletBalance - amount;
-      await updateWalletBalance(newBalance);
+      // NOTE: Data purchase API endpoint is not available from SME Plug.
+      // This will currently result in a simulated failure.
+      throw new Error('Data purchase is temporarily unavailable. Please try again later.');
 
-      // Process the data transaction using external_id
-      const result = await serviceAPI.processDataTransaction(user.id, {
-        network: selectedNetwork.toLowerCase(),
-        plan: selectedPlan.external_id.toString(),
-        phoneNumber: phoneNumber,
-        amount: amount,
-      });
+      // Once SME Plug provides a data purchase endpoint, uncomment and modify the following:
+      // // Deduct from wallet first
+      // const newBalance = user.walletBalance - amount;
+      // await updateWalletBalance(newBalance);
+
+      // // Process the data transaction using external_id
+      // const result = await serviceAPI.processDataTransaction(user.id, {
+      //   network: selectedNetwork.toLowerCase(),
+      //   plan: selectedPlan.external_id.toString(),
+      //   phoneNumber: phoneNumber,
+      //   amount: amount,
+      // });
       
-      setTransaction(result);
-      setIsSuccess(true);
-      setStep(3);
+      // setTransaction(result);
+      // setIsSuccess(true);
+      // setStep(3);
     } catch (error: any) {
       console.error('Data purchase error:', error);
       setErrorMessage(error.message || 'Failed to purchase data. Please try again.');
@@ -695,13 +705,11 @@ const DataServicePage: React.FC = () => {
               
               <div className="flex justify-between py-2">
                 <span className="text-gray-600 dark:text-gray-400">Amount</span>
-                <span className="font-medium text-gray-900 dark:text-white">
-                  {formatCurrency(selectedPlan?.selling_price || 0)}
-                </span>
+                <span className="font-medium text-gray-900 dark:text-white">{formatCurrency(selectedPlan?.selling_price || 0)}</span>
               </div>
             </div>
             
-            <div className="flex space-x-3 mb-4">
+            <div className="flex space-x-3">
               <Button
                 variant="outline"
                 onClick={() => navigate('/')}

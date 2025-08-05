@@ -80,12 +80,12 @@ const DashboardPage: React.FC = () => {
       path: '/services/data',
       color: 'bg-green-100 text-green-600',
     },
-    {
-      title: 'Electricity',
-      icon: <Zap size={20} />,
-      path: '/services/electricity',
-      color: 'bg-green-100 text-green-600',
-    },
+    // {
+    //   title: 'Electricity',
+    //   icon: <Zap size={20} />,
+    //   path: '/services/electricity',
+    //   color: 'bg-green-100 text-green-600',
+    // },
     {
       title: 'TV',
       icon: <Tv size={20} />,
@@ -154,7 +154,7 @@ const DashboardPage: React.FC = () => {
                 {getGreeting()}
               </p>
               <p className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white">
-                {user?.name?.split(' ')[0] || 'User'}
+                {user?.name?.split(' ') || 'User'}
               </p>
             </div>
           </div>

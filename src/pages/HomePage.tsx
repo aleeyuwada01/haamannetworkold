@@ -102,12 +102,6 @@ const HomePage: React.FC = () => {
       path: '/services/data',
     },
     {
-      title: 'Electricity Bills',
-      description: 'Pay electricity bills for any DISCO',
-      icon: <Zap size={24} />,
-      path: '/services/electricity',
-    },
-    {
       title: 'WAEC Scratch Cards',
       description: 'Purchase WAEC scratch cards instantly',
       icon: <BookOpen size={24} />,
@@ -124,7 +118,7 @@ const HomePage: React.FC = () => {
   const features = [
     {
       title: 'Simplify Your Payments with Haaman Network',
-      description: 'With Haaman Network, you can enjoy a hassle-free payment experience for all your essential bills and services. We offer a simple, fast, and secure way to pay your utility bills, shop online, and even place bets all in one place.',
+      description: 'With Haaman Network, you can enjoy a hassle-free payment experience for all your essential bills and services. We offer a simple, fast, and secure way to pay your utility bills, shop online, all in one place.',
       icon: <Shield size={32} />,
     },
     {
@@ -164,13 +158,13 @@ const HomePage: React.FC = () => {
 
   const faqs = [
     { question: 'Why Should I use Haaman Network', answer: 'Haaman Network provides a secure, fast, and convenient way to pay all your bills and shop online in one place.' },
-    { question: 'How Can I Pay For Utility On Haaman Network', answer: 'You can pay for utilities by funding your wallet and selecting the utility service you want to pay for.' },
-    { question: 'How do I Pay Or deposit on Haaman Network?', answer: 'You can deposit funds using your debit/credit card or bank transfer through our secure payment gateway.' },
+    { question: 'How Can I Pay For Utility On Haaman Network', answer: 'You can pay for utilities by funding your wallet and selecting the utility service you want to pay for. (Note: Electricity bill payment is currently unavailable due to API changes.)' },
+    { question: 'How do I Pay Or deposit on Haaman Network?', answer: 'You can deposit funds using your debit/credit card or bank transfer through our secure payment gateway. (Note: Wallet funding is currently undergoing verification with our partners.)' },
     { question: 'What Happen If my card doesn\'t work?', answer: 'If your card doesn\'t work, please contact our support team or try using a different payment method.' },
     { question: 'I was debited for a failed transaction', answer: 'If you were debited for a failed transaction, please contact our support team with your transaction reference for immediate resolution.' },
     { question: 'What is Haaman Network?', answer: 'Haaman Network is a leading digital services and e-commerce platform that enables users to easily and securely pay for various bills, subscriptions, and shop online.' },
     { question: 'Is Haaman Network safe and secure to use?', answer: 'Yes, Haaman Network uses advanced security measures to protect your personal and financial information.' },
-    { question: 'How do I add money to my Haaman Network wallet?', answer: 'You can add money to your wallet using debit/credit cards or bank transfers through our secure payment system.' },
+    { question: 'How do I add money to my Haaman Network wallet?', answer: 'You can add money to your wallet using debit/credit cards or bank transfers through our secure payment system. (Note: Wallet funding is currently undergoing verification with our partners.)' },
   ];
 
   // Get current year for copyright
@@ -483,7 +477,7 @@ const HomePage: React.FC = () => {
               <p className="text-gray-400 mb-6 leading-relaxed text-sm sm:text-base">
                 {footerSettings.footer_company_name} is a leading digital services and e-commerce provider that enables users to easily and securely pay for various bills, subscriptions, and shop online for quality products.
               </p>
-              <p className="text-gray-400 text-sm sm:text-base">
+              <p className="text-gray-400 text-sm">
                 <strong>Address:</strong> {footerSettings.footer_address}
               </p>
             </div>
@@ -494,7 +488,7 @@ const HomePage: React.FC = () => {
                 <li><a href="/services/data" className="hover:text-white transition-colors">Data bundle purchases</a></li>
                 <li><a href="/services/airtime" className="hover:text-white transition-colors">Mobile airtime top-ups</a></li>
                 <li><a href="/services/waec" className="hover:text-white transition-colors">Education bill payments</a></li>
-                <li><a href="/services/electricity" className="hover:text-white transition-colors">Utility Payment</a></li>
+                {/* <li><a href="/services/electricity" className="hover:text-white transition-colors">Utility Payment</a></li> */}
               </ul>
             </div>
 

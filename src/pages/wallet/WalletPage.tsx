@@ -39,7 +39,7 @@ const getTransactionLabel = (type: string, details: any) => {
 };
 
 const isDebit = (type: string) => {
-  return ['airtime', 'data', 'electricity', 'waec', 'product_purchase'].includes(type);
+  return ['airtime', 'data', 'waec', 'product_purchase'].includes(type);
 };
 
 const WalletPage: React.FC = () => {

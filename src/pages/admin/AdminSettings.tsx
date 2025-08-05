@@ -102,7 +102,7 @@ const AdminSettings: React.FC = () => {
         if (!setting) continue;
 
         // Check if it's an API setting
-        if (key.includes('maskawa') || key.includes('api')) {
+        if (key.includes('smeplug') || key.includes('api')) {
           await supabase
             .from('api_settings')
             .update({ 
@@ -177,8 +177,8 @@ const AdminSettings: React.FC = () => {
         return <Download className="text-indigo-500" size={20} />;
       case 'download_app_enabled':
         return <Smartphone className="text-indigo-500" size={20} />;
-      case 'maskawa_token':
-      case 'maskawa_base_url':
+      case 'smeplug_token':
+      case 'smeplug_base_url':
         return <Key className="text-red-500" size={20} />;
       default:
         return <Settings className="text-gray-500" size={20} />;
@@ -186,7 +186,7 @@ const AdminSettings: React.FC = () => {
   };
 
   const settingCategories = {
-    'API Configuration': ['maskawa_token', 'maskawa_base_url'],
+    'API Configuration': ['smeplug_token', 'smeplug_base_url'],
     'General': ['site_name', 'support_email', 'support_phone'],
     'Footer Information': ['footer_company_name', 'footer_email', 'footer_phone', 'footer_address'],
     'Homepage Banners': ['hero_banner_image', 'hero_banner_image_alt', 'steps_banner_image'],
@@ -260,7 +260,7 @@ const AdminSettings: React.FC = () => {
                 <h2 className="text-lg font-semibold text-gray-900 dark:text-white">{category}</h2>
                 {category === 'API Configuration' && (
                   <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
-                    Configure MASKAWASUBAPI integration settings for airtime, data, and electricity services
+                    Configure SME Plug API integration settings for airtime, data, and electricity services
                   </p>
                 )}
                 {category === 'Footer Information' && (
@@ -298,13 +298,13 @@ const AdminSettings: React.FC = () => {
                             <option value="false">Disabled</option>
                             <option value="true">Enabled</option>
                           </select>
-                        ) : setting.key === 'maskawa_token' ? (
+                        ) : setting.key === 'smeplug_token' ? (
                           <div className="relative">
                             <input
                               type={showApiToken ? 'text' : 'password'}
                               value={formData[key] || setting.value}
                               onChange={(e) => handleChange(key, e.target.value)}
-                              placeholder="Enter MASKAWA API token"
+                              placeholder="Enter SME Plug API token"
                               className="w-full px-3 py-2 pr-10 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#0F9D58]"
                             />
                             <button
@@ -392,15 +392,15 @@ const AdminSettings: React.FC = () => {
                           />
                         )}
                         
-                        {setting.key === 'maskawa_token' && (
+                        {setting.key === 'smeplug_token' && (
                           <p className="text-xs text-red-500 dark:text-red-400 mt-1">
                             ⚠️ Keep this token secure. It's used for all service transactions.
                           </p>
                         )}
                         
-                        {setting.key === 'maskawa_base_url' && (
+                        {setting.key === 'smeplug_base_url' && (
                           <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
-                            Base URL for MASKAWASUBAPI (usually https://maskawasubapi.com)
+                            Base URL for SME Plug API (e.g., https://smeplug.ng/api/v1)
                           </p>
                         )}
                       </div>
@@ -418,8 +418,8 @@ const AdminSettings: React.FC = () => {
             API Integration Information
           </h3>
           <div className="space-y-3 text-sm text-blue-800 dark:text-blue-200">
-            <p>• <strong>MASKAWA Token:</strong> Required for airtime, data, and electricity bill payments</p>
-            <p>• <strong>Base URL:</strong> The API endpoint for MASKAWASUBAPI service</p>
+            <p>• <strong>SME Plug Token:</strong> Required for airtime and data services</p>
+            <p>• <strong>Base URL:</strong> The API endpoint for SME Plug service</p>
             <p>• <strong>Security:</strong> API tokens are encrypted and only accessible to admin users</p>
             <p>• <strong>Testing:</strong> Use the services to verify API integration is working correctly</p>
           </div>

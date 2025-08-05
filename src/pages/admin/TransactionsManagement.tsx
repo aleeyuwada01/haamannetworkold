@@ -113,7 +113,6 @@ const TransactionsManagement: React.FC = () => {
         return <TrendingUp className="text-green-500" size={20} />;
       case 'airtime':
       case 'data':
-      case 'electricity':
       case 'waec':
       case 'product_purchase':
         return <TrendingDown className="text-red-500" size={20} />;

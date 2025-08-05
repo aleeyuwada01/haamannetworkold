@@ -6,7 +6,6 @@ import DashboardPage from './pages/DashboardPage';
 import ServicesPage from './pages/services/ServicesPage';
 import AirtimeServicePage from './pages/services/AirtimeServicePage';
 import DataServicePage from './pages/services/DataServicePage';
-import ElectricityServicePage from './pages/services/ElectricityServicePage';
 import WaecServicePage from './pages/services/WaecServicePage';
 import StorePage from './pages/store/StorePage';
 import ProductDetailPage from './pages/store/ProductDetailPage';
@@ -31,6 +30,11 @@ import AdminSettings from './pages/admin/AdminSettings';
 import OrdersManagement from './pages/admin/OrdersManagement';
 import WalletManagement from './pages/admin/WalletManagement';
 import DataPlansManagement from './pages/admin/DataPlansManagement';
+
+// New Pages
+import AboutPage from './pages/AboutPage';
+import FaqPage from './pages/FaqPage';
+import ContactUsPage from './pages/ContactUsPage';
 
 import { useAuthStore } from './store/authStore';
 
@@ -65,7 +69,6 @@ function App() {
           <Route path="services" element={<ServicesPage />} />
           <Route path="services/airtime" element={<AirtimeServicePage />} />
           <Route path="services/data" element={<DataServicePage />} />
-          <Route path="services/electricity" element={<ElectricityServicePage />} />
           <Route path="services/waec" element={<WaecServicePage />} />
           <Route path="store" element={<StorePage />} />
           <Route path="store/product/:id" element={<ProductDetailPage />} />
@@ -76,6 +79,9 @@ function App() {
           <Route path="transactions" element={<TransactionsPage />} />
           <Route path="refer" element={<ReferEarnPage />} />
           <Route path="profile" element={<ProfilePage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/faq" element={<FaqPage />} />
+          <Route path="/contact" element={<ContactUsPage />} />
         </Route>
         {/* Auth routes outside of main layout */}
         <Route path="login" element={<LoginPage />} />

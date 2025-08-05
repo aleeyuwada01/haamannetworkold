@@ -11,22 +11,26 @@ const networkProviders = [
   { 
     value: 'mtn', 
     label: 'MTN',
-    color: 'bg-yellow-500'
+    color: 'bg-yellow-500',
+    id: 1
   },
   { 
     value: 'airtel', 
     label: 'Airtel',
-    color: 'bg-red-500'
-  },
-  { 
-    value: 'glo', 
-    label: 'Glo',
-    color: 'bg-green-500'
+    color: 'bg-red-500',
+    id: 2
   },
   { 
     value: '9mobile', 
     label: '9mobile',
-    color: 'bg-teal-500'
+    color: 'bg-teal-500',
+    id: 3
+  },
+  { 
+    value: 'glo', 
+    label: 'Glo',
+    color: 'bg-green-500',
+    id: 4
   },
 ];
 
