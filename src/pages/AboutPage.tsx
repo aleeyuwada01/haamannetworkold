@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
-import Card from '../../components/ui/Card';
+import Card from '../components/ui/Card';
 
 const AboutPage: React.FC = () => {
   const navigate = useNavigate();
