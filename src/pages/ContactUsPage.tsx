@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, Mail, Phone, MapPin, Send } from 'lucide-react';
-import Card from './components/ui/Card.tsx';
+import Card from './components/ui/Card';
 import Button from '../../components/ui/Button';
 import Input from '../../components/ui/Input';
 import { supabase } from '../../lib/supabase';
